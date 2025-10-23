@@ -1,0 +1,9 @@
+# Development image with hot reload
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 5000
+# Use nodemon for live-reload in development
+CMD ["npx", "nodemon", "src/server.js"]
